@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: trydjango
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn trydjango.wsgi
+    envVars:
+      - key: DJANGO_SETTINGS_MODULE
+        value: trydjango.settings
+      - key: PYTHON_VERSION
+        value: 3.11
